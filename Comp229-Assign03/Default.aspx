@@ -73,10 +73,13 @@
                 </tr>
                 <tr>
                 <td align="center" colspan="2">
-                    <asp:Button ID="SubmitButton" runat="server" style="text-align:center" Text="Submit" Width="140px"/>
+                    <asp:Button ID="SubmitButton" runat="server" style="text-align:center" Text="Submit" Width="140px" OnClick="SubmitButton_Click"/>
                 </td>
             </tr>
             </table>
+            <asp:Label style="text-align:center" ID="label1" runat="server"></asp:Label>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString1 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
+
         </div>
     </div>
 
