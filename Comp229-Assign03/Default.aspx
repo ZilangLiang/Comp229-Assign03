@@ -14,7 +14,11 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="StudentID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" InsertVisible="False" />
+                    <asp:TemplateField HeaderText="StudentID" >
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" Text='<%#Eval("StudentID") %>' runat="server">LinkButton</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                     <asp:BoundField DataField="FirstMidName" HeaderText="FirstMidName" SortExpression="FirstMidName" />
                     <asp:BoundField DataField="EnrollmentDate" HeaderText="EnrollmentDate" SortExpression="EnrollmentDate" />
@@ -73,7 +77,7 @@
                 </td>
             </tr>
             </table>
-            <asp:Label style="text-align:center" ID="label1" runat="server"></asp:Label>
+            <asp:Label style=" color:lawngreen; text-align:center" ID="label1" runat="server"></asp:Label>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString5 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
 
         </div>
