@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
@@ -20,14 +21,6 @@ namespace Comp229_Assign03
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-
-            //con.Open();
-            /*
-            SqlCommand cmd = new SqlCommand("insert into Students values('"+idTextBox.Text+"','"+lnTextBox.Text+"','"+fnTextBox.Text+"','"+dateTextBox.Text+"')",con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            label1.Text = "Values are Inserted";
-            */
             con.Open();
             SqlCommand cmd = new SqlCommand(@"Insert Into [Students] (LastName, FirstMidName, EnrollmentDate) 
                                   Values (@lname, @fname, @date)", con);
@@ -42,14 +35,11 @@ namespace Comp229_Assign03
             lnTextBox.Text = "";
             fnTextBox.Text = "";
             dateTextBox.Text = "";
-            
-            /*
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText="insert into registration values('" + idTextBox.Text + "','" + lnTextBox.Text + "','" + fnTextBox.Text + "','" + dateTextBox.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            */
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/About.aspx?StudentID=" + ((LinkButton)sender).Text);
         }
     }
 }

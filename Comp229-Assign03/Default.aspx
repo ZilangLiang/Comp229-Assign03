@@ -16,7 +16,7 @@
                 <Columns>
                     <asp:TemplateField HeaderText="StudentID" >
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkButton1" Text='<%#Eval("StudentID") %>' runat="server">LinkButton</asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" Text='<%#Eval("StudentID") %>' runat="server">LinkButton</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
