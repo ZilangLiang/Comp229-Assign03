@@ -14,7 +14,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="StudentID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" />
+                    <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" SortExpression="StudentID" InsertVisible="False" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                     <asp:BoundField DataField="FirstMidName" HeaderText="FirstMidName" SortExpression="FirstMidName" />
                     <asp:BoundField DataField="EnrollmentDate" HeaderText="EnrollmentDate" SortExpression="EnrollmentDate" />
@@ -30,7 +30,7 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString1 %>" DeleteCommand="DELETE FROM [Students] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO [Students] ([LastName], [FirstMidName], [EnrollmentDate]) VALUES (@LastName, @FirstMidName, @EnrollmentDate)" ProviderName="<%$ ConnectionStrings:Comp229Assign03ConnectionString1.ProviderName %>" SelectCommand="SELECT [StudentID], [LastName], [FirstMidName], [EnrollmentDate] FROM [Students]" UpdateCommand="UPDATE [Students] SET [LastName] = @LastName, [FirstMidName] = @FirstMidName, [EnrollmentDate] = @EnrollmentDate WHERE [StudentID] = @StudentID">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString5 %>" DeleteCommand="DELETE FROM [Students] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO [Students] ([LastName], [FirstMidName], [EnrollmentDate]) VALUES (@LastName, @FirstMidName, @EnrollmentDate)" SelectCommand="SELECT * FROM [Students]" UpdateCommand="UPDATE [Students] SET [LastName] = @LastName, [FirstMidName] = @FirstMidName, [EnrollmentDate] = @EnrollmentDate WHERE [StudentID] = @StudentID" ProviderName="System.Data.SqlClient">
                     <DeleteParameters>
                         <asp:Parameter Name="StudentID" Type="Int32" />
                     </DeleteParameters>
@@ -54,10 +54,6 @@
         <div>
             <table style="width:auto;">
                 <tr>
-                    <td style="text-align:left">Please enter students' id</td>
-                    <td><asp:Textbox ID="idTextBox" runat="server" placeholder="Students' ID"></asp:Textbox></td>
-                </tr>
-                <tr>
                     <td style="text-align:left">Please enter students' Last Name</td>
                     <td><asp:Textbox ID="lnTextBox" runat="server" placeholder="Students' last name"></asp:Textbox></td>
                 </tr>
@@ -78,7 +74,7 @@
             </tr>
             </table>
             <asp:Label style="text-align:center" ID="label1" runat="server"></asp:Label>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString1 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Comp229Assign03ConnectionString5 %>" SelectCommand="SELECT * FROM [Students]"></asp:SqlDataSource>
 
         </div>
     </div>
